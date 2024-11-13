@@ -56,6 +56,11 @@ RUN apt-get install -y \
     php${PHP_VERSION}-memcached \
     --no-install-recommends
 
+# PHP-FPM configuration (optional: can be further customized)
+RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php/${PHP_VERSION}/fpm/php.ini \
+    && echo "listen.owner = www-data" >> /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
+    && echo "listen.group = www-data" >> /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf
+
 # Clean up apt cache to reduce image size
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
