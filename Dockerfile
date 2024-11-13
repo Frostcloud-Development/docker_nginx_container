@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y \
 RUN curl -O http://nginx.org/download/nginx-1.24.0.tar.gz \
     && tar -xzvf nginx-1.24.0.tar.gz \
     && cd nginx-1.24.0 \
-    && ./configure --with-http_ssl_module --with-http_realip_module \
+    && ./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --with-pcre --pid-path=/var/run/nginx.pid --with-http_ssl_module --with-http_realip_module \
     && make \
     && make install
 
