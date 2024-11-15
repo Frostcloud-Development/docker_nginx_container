@@ -3,7 +3,7 @@ FROM debian:bullseye-slim
 
 # Environment variables for non-interactive apt install
 ENV DEBIAN_FRONTEND=noninteractive
-ENV PHP_VERSION=8.3
+ENV PHP_VERSION=8.1
 
 # Update the package list and install dependencies
 RUN apt-get update && apt-get install -y \
