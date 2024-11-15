@@ -7,7 +7,7 @@ name: Docker
 
 on:
   push:
-    branches: [ "production" ]
+    branches: [ "production", "php-8.1" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
 
